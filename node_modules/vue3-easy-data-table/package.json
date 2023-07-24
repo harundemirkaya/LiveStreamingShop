@@ -1,0 +1,61 @@
+{
+  "name": "vue3-easy-data-table",
+  "author": "HC200ok",
+  "description": "A customizable and easy-to-use data table component made with Vue.js 3.x.",
+  "private": false,
+  "version": "1.5.47",
+  "types": "./types/main.d.ts",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "vue3",
+    "data-table-component",
+    "data-table",
+    "vue3-component",
+    "vue-component"
+  ],
+  "homepage": "https://github.com/HC200ok/vue3-easy-data-table",
+  "main": "./dist/vue3-easy-data-table.umd.js",
+  "module": "./dist/vue3-easy-data-table.es.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/main.d.ts",
+      "import": "./dist/vue3-easy-data-table.es.js",
+      "require": "./dist/vue3-easy-data-table.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --fix 'src/**/*.{vue,html,css,js,ts}'",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.29",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/test-utils": "^2.0.0-rc.18",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "happy-dom": "^5.0.0",
+    "sass": "^1.51.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.16",
+    "vitest": "^0.13.1",
+    "vue-eslint-parser": "^9.0.1",
+    "vue-tsc": "^0.34.7"
+  }
+}

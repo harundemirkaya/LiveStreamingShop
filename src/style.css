@@ -1,0 +1,116 @@
+@import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro?styles=82961,82971,82969,82967,82965,82963,82959,82957");
+
+body {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+::-webkit-scrollbar {
+  /* display: none;  */
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #778899;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+.haAclf {
+  @apply rounded-2xl border-2;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .content-container {
+    @apply px-2 md:px-[3rem] overflow-x-clip;
+  }
+  .h2 {
+    @apply text-[48px] leading-[58px];
+  }
+  .h3 {
+    @apply text-[20px] md:text-[32px] leading-[38px];
+  }
+  .h6 {
+    @apply text-[24px] leading-[29px];
+  }
+  .subtitle1 {
+    @apply text-[20px] leading-[24px];
+  }
+  .base {
+    @apply text-base lg:text-xl font-medium tracking-wide;
+  }
+  .logo {
+    @apply h-8 cursor-pointer;
+    width: 250px;
+    height: auto;
+  }
+  .sidebar-wrapper {
+    @apply fixed top-0 right-0 w-screen h-screen z-50 bg-transparent lg:hidden;
+  }
+  .sidebar {
+    @apply flex min-[280px]:flex-col gap-8 relative bg-white ml-auto w-[65vw] md:w-[50vw] pt-24 pb-12 px-4 shadow-xl min-h-screen;
+  }
+  .top-bar-text {
+    @apply text-xs font-medium md:text-base cursor-pointer whitespace-nowrap;
+  }
+  .dialog-wrapper {
+    @apply fixed w-screen h-screen inset-0 z-50 bg-transparent flex flex-col justify-center bg-gray-300/70;
+  }
+  .dialog {
+    @apply flex flex-col items-center relative bg-white mx-auto max-w-sm md:max-w-lg lg:max-w-3xl rounded-lg py-12
+    px-16  w-full;
+  }
+  .inputs {
+    @apply ring-1 ring-gray-300 text-primary placeholder:text-secondary placeholder:text-sm w-full
+    focus:outline-none px-4 py-1 md:py-2 rounded-md;
+  }
+  .labels {
+    @apply text-[16px] leading-[24px] text-primary tracking-wide font-semibold mb-1;
+  }
+  .input-wrapper {
+    @apply flex flex-col gap-2 w-full;
+  }
+  .scrolling-chevron {
+    @apply h-16 w-16 flex items-center justify-center cursor-pointer border-[.1rem] border-info rounded-full p-2
+    z-10 shadow-lg shadow-info  bg-primary text-white disabled:shadow-none disabled:bg-base-200 disabled:text-gray-400
+    disabled:border-gray-400 disabled:cursor-not-allowed;
+  }
+
+  .primary-btn {
+    @apply rounded-[40px] py-2 px-6 bg-info text-white tracking-wide font-medium;
+  }
+  .outline-btn {
+    @apply rounded-[40px] py-2 px-6 bg-white text-info border-2 border-info tracking-wide font-medium;
+  }
+  .sidebar-text {
+    @apply w-[7rem] lg:w-full lg:border-0 text-xs md:text-base text-primary font-medium cursor-pointer;
+  }
+  .cat-item {
+    @apply text-secondary text-lg xl:text-xl tracking-wide font-medium cursor-pointer;
+  }
+  .checked-radio {
+    @apply rounded-full w-[26px] h-[26px] ring-1 ring-offset-1 ring-info bg-info;
+  }
+
+  .unchecked-radio {
+    @apply rounded-full w-[26px] h-[26px] border-[1px] border-info;
+  }
+  .chips{
+    @apply bg-info text-white font-medium rounded-lg py-2 px-2 text-center;
+  }
+  .table-text{
+    @apply font-light text-lg;
+  }
+}

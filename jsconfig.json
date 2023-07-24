@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2015",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
