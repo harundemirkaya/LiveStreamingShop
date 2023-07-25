@@ -1,4 +1,5 @@
-<template>
+<!-- Kategori
+  <template>
   <div
     class="flex flex-row text-primary gap-4 lg:gap-8 py-2 overflow-x-scroll px-4 parent"
   >
@@ -12,6 +13,7 @@
     </p>
   </div>
 </template>
+-->
 
 <script setup>
 import { useRouter } from "vue-router";

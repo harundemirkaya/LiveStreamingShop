@@ -16,7 +16,7 @@
         <p class="text-xs xl:text-lg font-semibold w-full text">
           {{ product.name }}
         </p>
-        <p class="text-xs xl:text-sm">by {{ product.shopId?.name }}</p>
+        <p class="text-xs xl:text-sm">{{ product.shopId?.name }}</p>
       </div>
 
       <button

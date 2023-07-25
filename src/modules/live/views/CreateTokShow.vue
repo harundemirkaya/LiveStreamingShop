@@ -5,7 +5,7 @@
   >
     <div class="flex flex-col w-full max-w-6xl gap-4 items-center">
       <div class="flex w-full justify-between items-center">
-        <p class="text-2xl text-primary tracking-wide font-semibold">Go Live</p>
+        <p class="text-2xl text-primary tracking-wide font-semibold">Canlı Yayın Başlat</p>
         <img alt="play" class="w-12" src="/imgs/play.svg" />
       </div>
       <hr />
@@ -15,7 +15,7 @@
           v-model="state.title"
           :required="true"
           class="w-full"
-          label="Title"
+          label="Başlık"
           placeholder=" "
           type="text"
         />
@@ -26,7 +26,7 @@
         >
           <div class="flex flex-col w-full gap-3">
             <div class="input-wrapper">
-              <label class="labels" for="channel">Tag Products</label>
+              <label class="labels" for="channel">Ürünler</label>
               <select
                 id="tag"
                 class="inputs"
@@ -39,7 +39,7 @@
                   :value="item.name"
                   :disabled="item.quantity < 1"
                 >
-                  {{ item.name }} qty: {{ item.quantity }}
+                  {{ item.name }} | Stok: {{ item.quantity }}
                 </option>
               </select>
               <div v-else>
@@ -87,7 +87,7 @@
 
         <div class="flex items-center w-full gap-16">
           <div class="input-wrapper">
-            <label class="labels" for="channel">Select Channel</label>
+            <label class="labels" for="channel">Kategori</label>
             <select
               id="channel"
               v-model="state.channel"
@@ -109,14 +109,14 @@
             class="flex md:w-5/12 items-center justify-between gap-4 cursor-pointer"
             @click="toggleSchedule"
           >
-            <p class="text-sm md:text-xl font-medium">Schedule?</p>
+            <p class="text-sm md:text-xl font-medium">İleri Tarih</p>
             <div
               :class="[state.schedule ? 'bg-green-500' : 'bg-red-500']"
               class="w-6 h-6 rounded-full ring-2 ring-secondary p-2 ring-offset-2 cursor-pointer"
             />
           </div>
           <div class="flex md:w-5/12 items-center justify-between gap-4">
-            <p class="text-sm md:text-xl font-medium">Allow Chat</p>
+            <p class="text-sm md:text-xl font-medium">Mesajlaşmaya İzin Ver</p>
             <input
               v-model="state.chat"
               class="toggle toggle-success"
@@ -161,15 +161,15 @@
       </form>
     </div>
 
-    <div v-if="dialogState.isOpen">
+    <div v-if="!dialogState.isOpen">
       <default-dialog
         @close="dialogToggle"
-        title="To go live on Tokshop you have to set up your payout method first"
-        buttonText="Connect bank"
+        title="Canlı Yayına Geçmek İçin Önce Ödeme Yönteminizi Ayarlamanız Gerekmektedir"
+        buttonText="Ödeme Yöntemini Ayarla"
         @handler="router.push('/bankdetails')"
         showHandler="true"
         showCancel="true"
-        message="Welcome to tokshow! in order to golive on auctions or live streams we need to know how we will pay you when you receive an order."
+        message="BeeRelation'a Hoş Geldiniz! Canlı yayınlarda başarılı satışlar yapabilmek için bir sipariş aldığınızda size nasıl ödeme yapacağımızı bilmemiz gerekir."
       />
     </div>
   </div>

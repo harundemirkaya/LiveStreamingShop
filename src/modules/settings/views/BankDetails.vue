@@ -4,12 +4,12 @@
     class="flex flex-col gap-6 w-full content-container py-16"
     @submit="handleSubmit"
   >
-    <p class="text-3xl font-semibold tracking-wider">Add Bank Details</p>
+    <p class="text-3xl font-semibold tracking-wider">Banka Hesap Bilgileri</p>
     <div class="flex gap-4 flex-col md:flex-row w-full">
       <div class="input-wrapper">
-        <label class="labels" for="insuranceCo">Country</label>
+        <label class="labels" for="insuranceCo">Ülke</label>
         <select class="inputs w-full" @change="getMatchingCountry">
-          <option disabled selected>Country</option>
+          <option disabled selected>Ülke</option>
           <option
             v-for="country in countrySuggestions"
             :key="country.name"
@@ -21,9 +21,9 @@
       </div>
 
       <div class="input-wrapper">
-        <label class="labels" for="state">State</label>
+        <label class="labels" for="state">Şehir</label>
         <select class="inputs w-full" @change="getStateSuggestions">
-          <option disabled selected>State</option>
+          <option disabled selected>Şehir</option>
           <option
             v-for="state in stateSuggestions"
             :key="state.name"
@@ -37,9 +37,9 @@
 
     <div class="flex gap-4 flex-col md:flex-row w-full">
       <div class="input-wrapper">
-        <label class="labels" for="state">City</label>
+        <label class="labels" for="state">İlçe</label>
         <select class="inputs w-full" @change="getCitySuggestion">
-          <option disabled selected>City</option>
+          <option disabled selected>İlçe</option>
           <option
             v-for="city in citySuggestions"
             :key="city.name"
@@ -51,27 +51,27 @@
       </div>
     </div>
     <div class="flex gap-4 flex-col md:flex-row w-full">
-      <tok-input v-model="address" label="*Address" required />
+      <tok-input v-model="address" label="*Adres" required />
     </div>
     <div class="flex gap-4 flex-col md:flex-row w-full">
       <tok-input
         v-model="accountNumber"
         :required="true"
-        label="*Account Number"
+        label="*IBAN"
       />
       <tok-input
         v-model="routingNumber"
         :required="true"
-        label="*Routing Number"
-        type="number"
+        label="*İsim Soyisim"
+        type="text"
       />
     </div>
     <div class="flex gap-4 flex-col md:flex-row w-full">
-      <tok-input v-model="postalCode" :required="true" label="*Postal Code" />
+      <tok-input v-model="postalCode" :required="true" label="*Posta Kodu" />
       <tok-phone-input
         v-model="phoneNumber"
         :required="true"
-        label="*Phone Number"
+        label="*Telefon Numarası"
         @keypress="onlyNumber"
       />
     </div>
@@ -79,14 +79,14 @@
       <tok-date-picker
         v-model="DOB"
         :required="true"
-        label="*DOB"
+        label="*Doğum Tarihi"
         type="date"
       />
       <tok-input
         v-model="lastFourSSN"
         :required="true"
-        label="*Last 4 digits of Social Security Number"
-        maxLength="4"
+        label="*TC Kimlik Numarası"
+        maxLength="11"
         type="text"
         @keypress="onlyNumber"
       />
@@ -97,7 +97,7 @@
       class="primary-btn w-44"
       type="submit"
     >
-      Save
+      Kaydet
     </button>
   </form>
 </template>

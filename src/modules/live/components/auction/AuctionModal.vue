@@ -1,9 +1,9 @@
 <template>
   <div class="dialog-wrapper">
     <div class="dialog flex flex-col gap-5 shadow-2xl border-[1px]">
-      <p class="text-2xl font-semibold">Auction settings</p>
+      <p class="text-2xl font-semibold">Müzayede Ayarları</p>
       <p class="text-info text-3xl font-semibold">{{ product.name }}</p>
-      <p class="text-info font-medium text-lg">Qty {{ product.quantity }}</p>
+      <p class="text-info font-medium text-lg">Stok: {{ product.quantity }}</p>
 
       <form class="flex flex-col gap-5 items-center">
         <tok-input
@@ -12,7 +12,7 @@
           v-model="state.startingBid"
           :required="true"
           class="w-full"
-          label="Starting Bid"
+          label="Başlangıç Teklifi"
           placeholder=" "
           type="number"
         />
@@ -22,7 +22,7 @@
           v-model="state.increaseBidBy"
           :required="true"
           class="w-full"
-          label="Increase Bid By"
+          label="Teklif Artışı"
           placeholder=" "
           type="number"
         />
@@ -32,7 +32,7 @@
             v-model="state.time"
             :required="true"
             class="w-full"
-            label="Time"
+            label="Zaman"
             placeholder=" "
             type="number"
         />
@@ -47,13 +47,13 @@
             class="px-4 py-1 rounded-md border-[1px] cursor-pointer"
             @click="state.time = split"
           >
-            {{ split }}s
+            {{ split }} Dakika
           </div>
         </div>
         <spinner-v2 :load="state.loading"/>
         <div v-if="!state.loading" class="w-full flex justify-between mt-20">
           <button class="outline-btn" type="button" @click="emits('close')">
-            Cancel
+            Vazgeç
           </button>
           <button
             :disabled="
@@ -63,7 +63,7 @@
             type="button"
             @click="handleSubmit"
           >
-            Start Auction
+            Müzayedeyi Başlat
           </button>
         </div>
       </form>

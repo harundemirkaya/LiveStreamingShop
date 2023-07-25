@@ -67,7 +67,7 @@
       <button
           class="primary-btn px-6 py-1 text-xs md:text-sm"
           @click="handleFollow">
-        {{ state.stateFollowing ? '+Follow' : '- Following' }}
+        {{ state.stateFollowing ? '+Takip Et' : '- Takip Ediliyor' }}
       </button>
 
       <div
@@ -132,7 +132,7 @@ const isFollowing = computed(() => props?.event?.ownerId?.followers?.findIndex(i
 
 
 const handleFollow = async () => {
-  await useFetch(`/users/${isFollowing.value === -1 ? 'follow' : 'unfollow'}/${authStore.authUser._id}/${props.event.ownerId._id}`, {
+  await useFetch(`/users/${isFollowing.value === -1 ? 'Takip Et' : 'Takipten Çıakrt'}/${authStore.authUser._id}/${props.event.ownerId._id}`, {
     'method': 'PUT'
   })
   state.stateFollowing = !state.stateFollowing

@@ -11,7 +11,6 @@
     <div
       id="videoDiv"
       :class="[!state.hasJoined ? 'bg-[length:50px_50px] ' : 'bg-center']"
-      :style="{ backgroundImage: 'url(/imgs/mic_logo.png)' }"
       class="flex h-full w-full lg:col-span-2 xl:col-span-1 lg:relative place-self-stretch"
     >
       <info-overlay

@@ -107,12 +107,12 @@
     @close="state.openCustomBidsModal = false"
   />
 
-  <div v-if="state.roomAlertOpen">
+  <div v-if="!state.roomAlertOpen">
     <room-alert-dialog
       @close="roomAlertToggle"
-      title="To participate in live tokshows auctions we need your payment and shipping info"
+      title="Canlı BeeRelation Müzayedelerine Katılmak İçin Ödeme ve Gönderim Bilgilerinize İhtiyacımız Var"
       buttonText="Setup"
-      message="Welcome to tokshow! in order to bid on auctions you need to add a payment method and shipping address. All bids and purchases are final"
+      message="BeeRelation'a hoş geldiniz! A  çık artırmalara teklif verebilmek için bir ödeme yöntemi ve gönderim adresi eklemeniz gerekir. Tüm teklifler ve satın almalar kesindir"
     />
   </div>
   <div v-if="state.isOpen">

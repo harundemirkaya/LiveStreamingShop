@@ -38,7 +38,7 @@
         <template #item-product="item">
           <p class="table-text">
             {{ item.itemId.productId.name }},<br />
-            Qty: {{ item.quantity }}
+            Stok: {{ item.quantity }}
             <br />
             Variations: {{ item.itemId.productId.variations.toString() }}
           </p>

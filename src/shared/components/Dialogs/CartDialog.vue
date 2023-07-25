@@ -86,7 +86,7 @@
         <span
           class="text-bold text-lg font-bold justify-center place-items-center"
         >
-          Empty cart
+          Sepetiniz Boş
         </span>
       </div>
 
@@ -94,21 +94,21 @@
         v-if="cart.products.length > 0"
         class="grid grid-cols-2 place-items-stretch gap-4"
       >
-        <p class="md:text-md font-medium">Tax</p>
+        <p class="md:text-md font-medium">Vergi</p>
         <p class="md:text-md font-medium text-end">
           {{ getPriceFormatted("0.00") }}
         </p>
         <p class="md:text-md font-medium">
-          Shipping Cost({{ cart.shipping.name }})
+          Kargo Ücreti ({{ cart.shipping.name }})
         </p>
         <p class="md:text-md font-medium text-end">
           {{ getPriceFormatted(cart.shipping.amount) }}
         </p>
-        <p class="md:text-md">Subtotal</p>
+        <p class="md:text-md">Ara Toplam</p>
         <p class="md:text-md text-end">
           {{ getPriceFormatted(total) }}
         </p>
-        <p class="md:text-md font-semibold">Total</p>
+        <p class="md:text-md font-semibold">Toplam</p>
         <p class="md:text-md font-semibold text-end">
           {{ getPriceFormatted(cart.shipping.amount + total) }}
         </p>

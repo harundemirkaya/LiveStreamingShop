@@ -12,14 +12,14 @@
           class="outline-btn mt-6"
           @click="handleClick"
         >
-          Add Shipping Address
+          Gönderim Adresi Ekle
         </button>
         <button
           v-if="authStore.authUser.defaultpaymentmethod == null"
           class="outline-btn mt-6"
           @click="addCreditCard"
         >
-          Credit or Debit Card
+          Ödeme Yöntemi Ekle
         </button>
         <button v-if="showCancel" class="mt-6" @click="handleClose">
           Cancel

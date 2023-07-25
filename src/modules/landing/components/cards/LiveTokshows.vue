@@ -1,7 +1,7 @@
 <template>
   <div v-if="state.events.length > 0" class="content-container mx-auto flex flex-col py-16 w-full gap-6">
     <p class="h3 font-semibold text-primary">
-   <span class="text-info">Live</span> Tokshows
+   <span class="text-info">Canlı</span> Yayınlar
     </p>
     <spinner-v2 :load="state.loading"/>
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3  gap-4 lg:gap-y-12">

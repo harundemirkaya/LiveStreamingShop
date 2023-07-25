@@ -6,20 +6,22 @@
             :class="[state.tab === 'shop' ? 'tab-active' : 'text-white']"
             class="tab tab-lifted tab-lg text-left "
             @click="state.tab = 'shop'"
-        >Buy Now</a
+        >Satın Al</a
         >
         <a
             :class="[state.tab === 'hands' ? 'tab-active ' : 'text-white']"
             class="tab tab-lifted tab-lg"
             @click="state.tab = 'hands'"
-        >Raised Hands</a
+        >Katılma İstekleri</a
         >
-        <a
+       <!-- MÜZAYEDELER
+         <a
             :class="[state.tab === 'auctions' ? 'tab-active ' : 'text-white']"
             class="tab tab-lifted tab-lg"
             @click="state.tab = 'auctions'"
-        >Auctions</a
-        >
+        >Müzayedeler</a>
+       -->
+        
       </div>
     </div>
     <div class="flex w-full text-white p-4">

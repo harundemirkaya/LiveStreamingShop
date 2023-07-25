@@ -5,14 +5,14 @@
       v-if="!authStore.authStore?.payoutmethod && isOwner"
     >
       <div class="w-full flex justify-center font-light text-black text-xl">
-        What do you want to do?
+        Müzayede
       </div>
       <div
         v-if="isOwner"
         class="text-info font-semibold cursor-pointer w-full flex items-center justify-center my-auto h-1/2"
         @click="handleStartAuction"
       >
-        Start Auction
+        Müzayede Başlat
       </div>
       <div
         v-else
@@ -23,7 +23,7 @@
       </div>
       <div class="w-full flex justify-center py-4">
         <button class="primary-btn py-1 w-32" @click="emits('close')">
-          Cancel
+          Vazgeç
         </button>
       </div>
     </div>

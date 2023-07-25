@@ -13,7 +13,7 @@
       />
       <div class="flex gap-2 flex-col w-full">
         <p class="text-sm font-semibold tracking-wide">{{ firstName }} {{ lastName }}</p>
-        <p class="text-xs font-medium">{{ followers }} Followers</p>
+        <p class="text-xs font-medium">{{ followers }} Takipçi</p>
       </div>
       <svg
           v-if="!tokshowStore.tokshow.ended"
@@ -46,10 +46,10 @@
     <div class="flex gap-2 items-center">
       <button
           v-if="!isOwner"
-          class="primary-btn px-6 py-1 text-xs md:text-sm"
+          class="primary-btn px-5 py-1 text-md md:text-sm"
           @click="emits('follow')"
       >
-        {{ isFollowing ? "  Unfollow" : "Follow" }}
+        {{ isFollowing ? "  Takipten Çıkart" : "Takip Et" }}
       </button>
       <div
           class="rounded-[68px] bg-info justify-center flex items-center w-20 text-xs md:text-sm py-1 gap-2"

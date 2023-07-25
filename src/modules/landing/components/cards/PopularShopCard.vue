@@ -18,7 +18,7 @@
             class="rounded-md text-[14px] leading-[1.5] cursor-pointer text-white font-semibold text-lg px-2 py-1"
             @click="handleFollowClick"
         >
-          {{ state.isFollowing ? "  unFollow" : "Follow" }}
+          {{ state.isFollowing ? "  Takipten Çıkart" : "Takip Et" }}
         </button>
 
         <svg

@@ -132,19 +132,12 @@
         v-else-if="authStore.token"
         :style="{
           backgroundImage: `url(${
-            authStore.authUser?.profilePhoto || '/imgs/profile.svg'
+            '/imgs/profile.svg'
           })`,
         }"
         class="flex w-8 h-8 rounded-full items-center justify-center relative cursor-pointer bg-contain"
         @click="emit('openUserDiag')"
       >
-        <p
-          v-if="authStore.authUser?.firstName"
-          class="text-xs absolute bottom-0 right-0 font-semibold tracking-wider text-info z-10"
-        >
-          {{ authStore?.authUser?.firstName[0] }}
-          {{ authStore?.authUser?.lastName[0] }}
-        </p>
       </div>
 
       
@@ -168,7 +161,7 @@
 
       <!-- cart icon -->
       <svg
-        class="w-8 hidden lg:flex text-white cursor-pointer"
+        class="w-8 hidden lg:flex text-black cursor-pointer"
         fill="currentColor"
         viewBox="0 0 16 16"
         xmlns="http://www.w3.org/2000/svg"

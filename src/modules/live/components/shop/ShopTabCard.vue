@@ -8,16 +8,16 @@
       <p class="text-lg font-bold">
         {{ product?.name }}
       </p>
-      <p v-if="product.available" class="text-sm font-light">{{ product.quantity }} Available</p>
+      <p v-if="product.available" class="text-sm font-light">STOK: {{ product.quantity }}</p>
       <div class="flex w-full items-center gap-8">
         <p v-if="product?.discountedPrice > 0" class="font-semibold text-lg text-[16px]">
+          <p :class="[product?.discountedPrice > 0 ? 'line-through text-info': '']"
+           class="font-semibold  text-lg text-[16px]">₺{{ product.price }}</p>
           {{ getPriceFormatted(product?.discountedPrice) }}
         </p>
-        <p :class="[product?.discountedPrice > 0 ? 'line-through text-info': '']"
-           class="font-semibold  text-lg text-[16px]">${{ product.price }}</p>
       </div>
       <button v-if="!isOwner" class="primary-btn w-28 mt-2 cursor-pointer"
-              @click="router.push(`/product/${product?._id}`)">Buy Now
+              @click="router.push(`/product/${product?._id}`)">Satın Al
       </button>
     </div>
 

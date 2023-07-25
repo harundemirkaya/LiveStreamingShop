@@ -21,7 +21,7 @@
     </svg>
 
     <div v-if="event" class="flex flex-col w-full gap-3 mt-14 lg:mt-0">
-      <p class="text-slate-100 font-semibold">{{event?.productIds?.length}} &nbsp; Product(s)</p>
+      <p class="text-slate-100 font-semibold">{{event?.productIds?.length}} &nbsp; Ürün</p>
       <shop-tab-card
         v-for="(product, index) in event?.productIds"
         :key="index"

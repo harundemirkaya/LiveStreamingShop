@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-col content-container py-10 lg:py-16 gap-12">
     <p class="text-2xl text-primary font-semibold tracking-wide">
-      Brand Information
+      Marka Bilgileri
     </p>
     <div class="form-control w-full">
-      <label class="labels">Name</label>
+      <label class="labels">Marka İsmi</label>
       <input v-model="name" class="inputs" type="text"/>
     </div>
 
     <div class="flex w-full justify-between pr-20 lg:pr-40">
       <div class="flex flex-col gap-4">
-        <p class="labels">Upload Icon</p>
+        <p class="labels">Marka İkonu</p>
         <input
             ref="fileInput"
             style="display: none"
@@ -39,32 +39,32 @@
       </div>
 
       <div class="flex flex-col gap-4">
-        <p class="labels">Status</p>
+        <p class="labels">Durum</p>
         <div class="flex flex-col w-full  lg:w-44 lg:items-start gap-[38px] lg:gap-[22px] justify-center mt-[12px] lg:mt-[39px]">
           <div @click="shopStatus = !shopStatus" class="flex items-center gap-[5px] lg:gap-[20px] cursor-pointer">
             <div
                 :class="[shopStatus ? 'checked-radio' : 'unchecked-radio' ]"
             />
-            <p class="text-dark-blue lg:text-dark-blue dark:text-teal h4">Open</p>
+            <p class="text-dark-blue lg:text-dark-blue dark:text-teal h4">Açık</p>
           </div>
 
           <div @click="shopStatus = !shopStatus" class="flex items-center gap-[5px] lg:gap-[20px] cursor-pointer">
             <div
                 :class="[!shopStatus ? 'checked-radio' : 'unchecked-radio']"
             />
-            <p class="text-dark-blue lg:text-dark-blue dark:text-teal h4">Closed</p>
+            <p class="text-dark-blue lg:text-dark-blue dark:text-teal h4">Kapalı</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="form-control w-full">
-      <label class="labels">Description </label>
+      <label class="labels">Marka Açıklaması</label>
       <textarea v-model="description" class="inputs" rows="5"/>
     </div>
     <div class="flex w-full justify-end gap-6 items-center">
       <button v-if="!loading" class="primary-btn" @click="editShop">
-        Update
+        Güncelle
       </button>
       <spinner-v2 :load="loading"/>
     </div>

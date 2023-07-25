@@ -3,7 +3,7 @@
     class="content-container mx-auto flex flex-col py-5 relative w-full gap-6"
   >
     <p class="h3 font-semibold text-primary">
-      New <span class="text-info"> Collections </span>
+      Popüler <span class="text-info"> Ürünler </span>
     </p>
 
     <div

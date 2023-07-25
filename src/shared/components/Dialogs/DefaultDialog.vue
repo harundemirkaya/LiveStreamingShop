@@ -14,7 +14,7 @@
           {{ buttonText ?? "Okay" }}
         </button>
         <button v-if="showCancel" @click="handleClose" class="mt-6">
-          {{ cancelButtonText ?? "Cancel" }}
+          {{ cancelButtonText ?? "Vazgeç" }}
         </button>
       </div>
     </div>

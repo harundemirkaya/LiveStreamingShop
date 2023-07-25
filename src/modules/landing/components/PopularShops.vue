@@ -1,7 +1,7 @@
 <template>
   <div class="content-container mx-auto flex flex-col py-16 w-full gap-6">
     <p class="h3 font-semibold text-primary">
-      Popular <span class="text-info"> Brands</span>
+      Popüler <span class="text-info"> Markalar</span>
     </p>
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-5 gap-8 lg:gap-6"

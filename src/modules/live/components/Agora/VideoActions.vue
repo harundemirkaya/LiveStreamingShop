@@ -19,7 +19,7 @@
       id="join"
       class="primary-btn rounded-xl bg-gray-500 px-10 py-4 text-lg tracking-wide font-semibold disabled:bg-gray-300"
     >
-      Room Has Ended
+      Canlı Yayın Sonlandı
     </button>
   </div>
 </template>

@@ -23,26 +23,24 @@
         <h1
           class="text-2xl md:text-5xl font-semibold lg:font-bold md:tracking-wide text-primary"
         > 
-          The <span class="text-info">Shopping </span> experience  everyone is
-          talking about!
+          <span class="text-info">Herkesin </span> bahsettiği alışveriş deneyimi!
         </h1>
         <p class="py-4 md:py-12 text-xl md:text-2xl font-medium text-primary">
-          We’ve built the first online platform for live streaming and home
-          shopping shows with a built-in buying experience that anyone can use.
+          Herkesin kullanabileceği yerleşik bir satın alma deneyimi ile canlı yayında alışveriş şovları için ilk çevrimiçi platformu oluşturduk.
         </p>
         <button
           v-if="!authStore.token"
           @click="router.push('/login')"
           class="bg-info text-white font-semibold text-[24px] leading-[29px] rounded-[44px] w-[237px] h-[73px] flex items-center justify-center focus:outline-none focus:ring-0"
         >
-          Join for free
+          Bize Katıl
         </button>
         <button
           v-else
           @click="handleClick"
           class="bg-info text-white font-semibold text-[18px] leading-[29px] rounded-[44px] w-[207px] h-[58px] flex items-center justify-center focus:outline-none focus:ring-0"
         >
-          Start Selling
+          Satışa Başla
         </button>
       </div>
     </div>

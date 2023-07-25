@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full items-center text-white gap-2">
     <p class="text-lg text-left self-start ml-4">
-      {{ auctions.length }} products
+      {{ auctions.length }} Ürün
     </p>
     <div
       v-for="auction in auctions"
@@ -12,11 +12,11 @@
       <p class="text-gray-200">
         {{
           auction.product.available
-            ? auction.product.quantity + " " + " " + "available"
+            ? auction.product.quantity + " " + " " + "Stok"
             : "Not available"
         }}
       </p>
-      <p class="text-sm">Starting Bid: &nbsp;&nbsp; ${{ auction.baseprice }}</p>
+      <p class="text-sm">Başlangıç Teklifi: &nbsp;&nbsp; ${{ auction.baseprice }}</p>
       <hr class="mt-3" />
     </div>
   </div>
