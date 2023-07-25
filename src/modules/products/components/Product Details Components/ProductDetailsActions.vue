@@ -55,7 +55,7 @@
         class="bg-[#FF2323] primary-btn py-5 px-[18px]"
         @click="goLive"
     >
-      Go Live
+      Yayına Başla
     </button>
     <button @click="state.isShareModalOpen = true" class="primary-btn px-[18px] py-5">Share</button>
   </div>

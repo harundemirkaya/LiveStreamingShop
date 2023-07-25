@@ -154,7 +154,7 @@
             class="primary-btn"
             type="submit"
           >
-            {{ state.schedule ? "Schedule" : "Go Live" }}
+            {{ state.schedule ? "İleri Tarihli Yayını Ayarla" : "Yayına Başla" }}
           </button>
           <spinner-v2 :load="state.loading" />
         </div>

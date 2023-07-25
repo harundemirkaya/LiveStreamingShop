@@ -8,7 +8,7 @@
       <p
         class="hidden lg:block text-2xl md:text-3xl text-primary font-semibold mb-4 tracking-wide"
       >
-        Settings
+        Ayarlar
       </p>
       <a
         @click="router.push('/settings')"
@@ -17,7 +17,7 @@
         ]"
         class="tab lg:justify-start tab-bordered text-xs lg:text-lg font-medium text-primary lg:border-0"
       >
-        Shipping Address
+        Gönderim Adresi
       </a>
       <a
         @click="router.push('/settings/import-products')"
@@ -28,7 +28,7 @@
         ]"
         class="tab lg:justify-start tab-bordered text-xs lg:text-lg font-medium text-primary lg:border-0"
       >
-        Import Products
+        Ürünleri İçe Aktar
       </a>
       <a
         @click="router.push('/settings/shipping-method')"
@@ -39,7 +39,7 @@
         ]"
         class="tab lg:justify-start tab-bordered text-xs lg:text-lg font-medium text-primary lg:border-0"
       >
-        Shipping Method
+        Kargo Ayarları
       </a>
       <a
         @click="router.push('/settings/payout')"
@@ -50,7 +50,7 @@
         ]"
         class="tab lg:justify-start tab-bordered text-xs lg:text-lg font-medium text-primary lg:border-0"
       >
-        Payout Settings
+        Ödeme Yöntemleri
       </a>
     </div>
     <div class="hidden lg:block min-h-[80vh] w-[1px] bg-secondary"></div>

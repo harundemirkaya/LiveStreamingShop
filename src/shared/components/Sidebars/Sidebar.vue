@@ -89,7 +89,7 @@
           class="bg-[#FF2323] primary-btn px-2 py-0 w-full h-12"
           @click="handleGoLive"
       >
-        Go Live
+      Yayına Başla
       </button>
 
       <button v-if="!authStore.authUser?._id" class="primary-btn flex items-center text-white text-xl font-semibold

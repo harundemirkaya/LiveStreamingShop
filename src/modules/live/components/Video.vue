@@ -14,7 +14,7 @@
           v-if="event?.ownerId?._id === authStore.authUser?._id"
           class="primary-btn rounded-md  bg-red-500 px-10 py-4 text-lg tracking-wide font-semibold"
           @click="handleFollow">
-        Go live
+        Yayını Başlat
       </button>
     </div>
     <!-- chevron -->

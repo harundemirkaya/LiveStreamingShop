@@ -23,7 +23,8 @@
 
     <img :src="product.images[0]" alt="" class="h-16 ml-auto object-contain">
 
-      <svg
+     <!-- MÜZAYEDE
+       <svg
           v-if="!tokshowStore.tokshow.ended  && isOwner && !tokshowStore.tokshow.event"
           aria-hidden="true"
           class="self-start h-12 w-12 -mt-4"
@@ -41,6 +42,7 @@
             stroke-linejoin="round"
         ></path>
       </svg>
+     -->
 
     <hr class="mt-4"/>
 

@@ -119,7 +119,7 @@
         role="button"
         @click="handleCheckout"
       >
-        Checkout
+        Satın Al
       </button>
     </div>
   </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col gap-8">
-    <p class="text-lg font-semibold">Shipping Methods</p>
+    <p class="text-lg font-semibold">Kargo Yöntemleri</p>
     <div>
       <button class="primary-btn rounded-md" @click="addNewShippingRow">
-        Add +
+        Ekle +
       </button>
     </div>
     <form v-for="shipping in state.shippings" :key="shipping">
@@ -12,19 +12,19 @@
           type="text"
           class="inputs"
           v-model="shipping.name"
-          placeholder="Name"
+          placeholder="İsim"
         />
         <input
           type="number"
           class="inputs"
           v-model="shipping.amount"
-          placeholder="Enter amount"
+          placeholder="Fiyat"
         />
         <p
           @click="deleteShippingMethod(shipping)"
           class="text-info cursor-pointer"
         >
-          Remove
+          Sil
         </p>
       </div>
     </form>
@@ -33,7 +33,7 @@
       @click="saveShippingMethod"
       class="primary-btn rounded-md text-center"
     >
-      Update</p
+      Güncelle</p
     ><spinner-v2 :load="state.loading" />
   </div>
 </template>

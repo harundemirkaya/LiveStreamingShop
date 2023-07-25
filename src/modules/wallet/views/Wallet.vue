@@ -2,11 +2,11 @@
   <div class="flex flex-col xl:flex-row content-container gap-8 pb-16 py-10">
     <div class="pt-16 pb-12 w-96">
       <button class="primary-btn font-medium text-lg tracking-wider">
-        Available Balance: {{ state.availablebalancecurrency }}
+        Kullanılabilir Bakiye: {{ state.availablebalancecurrency }} ₺
         {{ state.availablebalance }}
       </button>
-      <div class="my-5">
-        Pending balance: {{ state.pendingbalancecurrency }}
+      <div class="my-5 ml-4">
+        Bekleyen Bakiye: {{ state.pendingbalancecurrency }}
         {{ state.pendingbalance }}
       </div>
     </div>
@@ -31,16 +31,7 @@
     <div class="flex flex-col gap-8 w-full">
       <div class="flex w-full items-center gap-8 max-w-2xl">
         <div class="input-wrapper w-full">
-          <div class="flex flex-row md:flex-row w-full gap-8">
-            <input
-              required
-              type="number"
-              id="code"
-              class="inputs w-full"
-              placeholder="Withdrawal amount"
-              v-model="state.amount"
-            />
-          </div>
+         
 
           <div class="flex flex-wrap items-center gap-4 py-4">
             <button
@@ -93,14 +84,14 @@
             "
           >
             <button class="outline-btn" @click="router.push('/bankdetails')">
-              Connect Bank Account
+              Banka Hesabını Bağla
             </button>
           </div>
           <spinner-v2 :load="state.loading" />
         </div>
       </div>
       <div class="flex flex-col gap-4 w-full">
-        <p class="text-2xl font-semibold tracking-wider">Transactions</p>
+        <p class="text-2xl font-semibold tracking-wider">İşlem Geçmişi</p>
         <div class="w-full rounded-lg border-[1px] border-primary z-10 p-1">
           <easy-data-table
             table-class-name="customize-table"
@@ -139,9 +130,7 @@ const router = useRouter();
 
 const state = reactive({
   options: [
-    { name: "Bank Account", enabled: true, default: false },
-    { name: "Paypal", enabled: false, default: false },
-    { name: "Mpesa", enabled: false, default: false },
+    { name: "Bank Account", enabled: true, default: false }
   ],
   withdrawoption: "",
   message: "",
@@ -221,9 +210,8 @@ const getBalance = async () => {
   state.pendingbalancecurrency = data.value.pending[0].currency;
 };
 const headers = [
-  { text: "Date", value: "date" },
-  { text: "Reason", value: "reason" },
-  { text: "Amount", value: "amount" },
+  { text: "Tarih", value: "date" },
+  { text: "Tutar", value: "amount" },
 ];
 </script>
 

@@ -2,11 +2,11 @@
   <div class="flex flex-col content-container py-16 gap-8">
     <div class="flex w-full justify-between items-center">
       <p class="text-2xl text-primary font-semibold tracking-wide">
-        {{ state.defaultOrders ? "Orders" : "Purchases" }}
+        {{ state.defaultOrders ? "Siparişler" : "Satın Alınanlar" }}
       </p>
       <div class="flex gap-4 items-center">
         <p class="font-semibold tracking-wider" @click="fetchPurchases">
-          Purchases
+          Satın Alınanlar
         </p>
         <input
           checked
@@ -14,7 +14,7 @@
           type="checkbox"
           @click="fetchList"
         />
-        <p class="font-semibold tracking-wider" @click="fetchOrders">Orders</p>
+        <p class="font-semibold tracking-wider" @click="fetchOrders">Siparişler</p>
       </div>
     </div>
     <spinner-v2 :load="state.loading" />
@@ -128,13 +128,13 @@ const state = reactive({
 });
 
 const headers = [
-  { text: "Date", value: "date" },
-  { text: "Product", value: "product" },
-  { text: "Paid via", value: "paymentMethod" },
-  { text: "Status", value: "status" },
-  { text: "Shipping", value: "info" },
-  { text: "Other Info", value: "customer" },
-  { text: "Summary", value: "total" },
+  { text: "Tarih", value: "date" },
+  { text: "Ürün", value: "product" },
+  { text: "Ödeme Yöntemi", value: "paymentMethod" },
+  { text: "Durum", value: "status" },
+  { text: "Kargo", value: "info" },
+  { text: "Diğer Bilgiler", value: "customer" },
+  { text: "Özet", value: "total" },
 ];
 const fetchOrders = async () => {
   state.loading = true;

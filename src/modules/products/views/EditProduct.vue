@@ -2,12 +2,12 @@
 
   <form class="flex flex-col content-container py-10 lg:py-16 gap-12" @submit="handleSubmit">
     <p class="text-2xl text-primary font-semibold tracking-wide">
-      Edit Product Details
+      Ürün Detaylarını Düzenle
     </p>
 
     <div class="flex flex-col md:flex-row justify-between w-full gap-8">
       <div class="form-control w-full">
-        <label class="labels"> Product Name </label>
+        <label class="labels"> Ürün İsmi </label>
         <input
             v-model="product_name"
             class="inputs"
@@ -16,7 +16,7 @@
         />
       </div>
       <div class="form-control w-full">
-        <label class="labels"> Price </label>
+        <label class="labels"> Fiyat </label>
         <input
             v-model="price"
             class="inputs"
@@ -29,7 +29,7 @@
     </div>
     <div class="flex flex-col md:flex-row justify-between w-full gap-8">
       <div class="form-control w-full">
-        <label class="labels"> Variations Eg. red, blue, leather</label>
+        <label class="labels"> Varyantlar (Örn: Kırmızı, Mavi, Sarı)</label>
         <input
             v-model="variations"
             class="inputs"
@@ -39,7 +39,7 @@
         />
       </div>
       <div class="form-control w-full">
-        <label class="labels"> Quantity </label>
+        <label class="labels"> Stok </label>
         <input
             v-model="quantity"
             class="inputs"
@@ -52,13 +52,13 @@
     </div>
     <div class="flex flex-col md:flex-row justify-between w-full gap-8">
       <div class="form-control w-full">
-        <label class="labels"> Description </label>
+        <label class="labels"> Ürün Açıklaması </label>
         <textarea v-model="description" class="inputs"> </textarea>
       </div>
     </div>
     <div class="flex flex-col md:flex-row w-full items-center gap-8">
       <div class="form-control w-full">
-        <label class="labels"> Discount </label>
+        <label class="labels"> İndirimli Fiyat </label>
         <input
             v-model="discount"
             class="inputs"
@@ -73,7 +73,7 @@
 
     <div class="flex flex-col md:flex-row w-full items-center gap-8">
       <div class="form-control w-full">
-        <label class="labels">Category </label>
+        <label class="labels">Kategori </label>
         <select class="inputs w-full" @change="handleSelectChange">
           <option disabled selected>Category</option>
           <option
@@ -122,11 +122,11 @@
           type="file"
           @change="onFileSelected($event.target.files[0])"
       />
-      <p class="absolute -top-8 labels">Upload Images</p>
+      <p class="absolute -top-8 labels">Ürün Görselleri </p>
       <div
           class="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-lg
            font-semibold tracking-wide text-primary bg-gray-200/40 p-2">
-        <p v-if="!loading" class="">+ Upload Here</p>
+        <p v-if="!loading" class="">+ Görsel Yükle</p>
         <spinner-v2 :load="loading"/>
       </div>
 
@@ -160,7 +160,7 @@
     </div>
 
     <div class="flex w-full justify-end gap-6 items-center mt-10">
-      <button v-if="!loading" class="primary-btn" type="submit">Update</button>
+      <button v-if="!loading" class="primary-btn" type="submit">Güncelle</button>
       <spinner-v2 :load="loading"/>
     </div>
   </form>

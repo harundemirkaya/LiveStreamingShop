@@ -24,7 +24,7 @@
         class="primary-btn text-sm h-7 w-16 px-0 py-0 ml-auto"
         @click="handleEdit"
       >
-        Edit
+        Düzenle
       </button>
     </div>
     <div

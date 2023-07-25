@@ -9,29 +9,12 @@
         class="flex items-center gap-2 pb-4 cursor-pointer"
         @click="handleProfileClick"
       >
-        <div
-          v-if="!user?.profilePhoto"
-          class="flex w-16 h-16 rounded-full bg-gray-300 items-center justify-center"
-        >
-          <svg
-            class="w-8 text-gray-900"
-            fill="currentColor"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-            <path
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <div v-else class="flex items-center gap-2 pb-2">
+        <div class="flex items-center gap-2 pb-2">
           <div
             class="flex w-16 h-16 rounded-full bg-gray-300 items-center justify-center"
           >
             <img
-              :src="user.profilePhoto"
+              src='/imgs/profile.svg'
               alt="..."
               class="shadow rounded-full max-w-full h-auto align-middle border-none"
             />
@@ -83,7 +66,7 @@
           <!--  -->
           <div class="flex flex-col gap-1">
             <!--Channel details name -->
-            <p class="text-sm font-semibold text-gray-700">My Shop</p>
+            <p class="text-sm font-semibold text-gray-700">Mağazam</p>
             <p class="text-gray-600 tracking-wide">
               {{ user?.userName }}
             </p>
@@ -173,38 +156,7 @@
           </svg>
         </div>
         <!-- wallet -->
-        <div
-          class="flex items-center gap-4 pb-4 cursor-pointer"
-          @click="handleWallet"
-        >
-          <div
-            class="flex w-8 h-8 rounded-full bg-gray-300 items-center justify-center"
-          >
-            <svg
-              class="w-5 text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"
-              />
-            </svg>
-          </div>
-          <p class="text-sm font-semibold text-gray-700">Ödeme</p>
-          <svg
-            class="w-8 h-8 text-gray-300 ml-auto"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              fill-rule="evenodd"
-            ></path>
-          </svg>
-        </div>
+       
 
         
         <div

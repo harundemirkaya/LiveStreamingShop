@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-8 min-h-full">
     <p class="text-xl text-primary font-semibold tracking-wider">
-      Connected Banks
+      Bağlı Hesaplar
     </p>
     <spinner-v2 :load="state.loading" />
 
@@ -16,7 +16,7 @@
       @click="router.push('/bankdetails')"
       class="outline-btn"
     >
-      Connect Bank Account
+      Banka Hesabı Bağla
     </button>
   </div>
 </template>

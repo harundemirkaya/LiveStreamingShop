@@ -2,13 +2,13 @@
   <div class="flex flex-col gap-8">
     <form class="flex flex-col gap-8 w-full">
       <div class="input-wrapper">
-        <label class="labels" for="insuranceCo">Country</label>
+        <label class="labels" for="insuranceCo">Ülke</label>
         <select
           class="inputs w-full"
           @change="getMatchingCountry"
           v-model="state.address.countryCode"
         >
-          <option disabled selected>Country</option>
+          <option disabled selected>Ülke</option>
           <option
             v-for="country in state.countrySuggestions"
             :key="country.name"
@@ -20,13 +20,13 @@
       </div>
       <div class="flex flex-col md:flex-row w-full gap-10">
         <div class="input-wrapper">
-          <label for="city" class="labels">State</label>
+          <label for="city" class="labels">Şehir</label>
           <select
             class="inputs w-full"
             @change="getStateSuggestions"
             v-model="state.address.stateCode"
           >
-            <option disabled selected>State</option>
+            <option disabled selected>Şehir</option>
             <option
               v-for="state in state.stateSuggestions"
               :key="state.name"
@@ -37,13 +37,13 @@
           </select>
         </div>
         <div class="input-wrapper">
-          <label for="state" class="labels">City </label>
+          <label for="state" class="labels">İlçe </label>
           <select
             class="inputs w-full"
             @change="getCitySuggestion"
             v-model="state.address.cityCode"
           >
-            <option disabled selected>City</option>
+            <option disabled selected>İlçe</option>
             <option
               v-for="city in state.citySuggestions"
               :key="city.name"
@@ -56,7 +56,7 @@
       </div>
       <div class="flex w-full gap-10 items-center">
         <div class="input-wrapper">
-          <label for="name" class="labels"> Name</label>
+          <label for="name" class="labels"> İsim Soyisim</label>
           <input
             type="text"
             id="name"
@@ -66,12 +66,12 @@
         </div>
       </div>
       <div class="input-wrapper">
-        <label for="addrress1" class="labels">Address</label>
+        <label for="addrress1" class="labels">Adres</label>
         <input
           type="text"
           id="addrress1"
           class="inputs"
-          placeholder="Address one"
+          placeholder="Adres"
           v-model="state.address.addrress1"
         />
       </div>
@@ -80,22 +80,22 @@
           type="text"
           id="addrress2"
           class="inputs"
-          placeholder="Apartment Suite, Unit, Building, Floor, etc"
+          placeholder="Ev, İş vb."
           v-model="state.address.addrress2"
         />
       </div>
       <div class="input-wrapper">
-        <label for="phone" class="labels">Phone number</label>
+        <label for="phone" class="labels">Telefon Numarası</label>
         <input
-          type="text"
+          type="number"
           id="phone"
           class="inputs"
-          placeholder="Enter phonenumber"
+          placeholder="Telefon Numarası"
           v-model="state.address.phone"
         />
       </div>
       <div class="input-wrapper">
-        <label for="zipcode" class="labels">Zip Code</label>
+        <label for="zipcode" class="labels">Posta Kodu</label>
         <input
           type="text"
           id="zipcode"
@@ -109,7 +109,7 @@
         class="primary-btn w-40"
         @click="updateMyAddrress"
       >
-        Update
+        Kaydet
       </button>
     </form>
   </div>

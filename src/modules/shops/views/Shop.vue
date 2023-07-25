@@ -22,11 +22,11 @@
             class="primary-btn text-white text-lg font-medium"
             @click="handleFollowClick"
           >
-            <span> {{ state.isFollowing ? "Unfollow" : "follow" }} </span>
+            <span> {{ state.isFollowing ? "Takipten Çıkar" : "Takip Et" }} </span>
           </button>
           <spinner-v2 :load="state.loading" />
           <p class="text-lg font-medium text-primary w-full">
-            {{ state?.followers }} following
+            {{ state?.followers }} Takip Edilen
           </p>
         </div>
         <p class="font-medium tracking-wide text-primary">
@@ -37,13 +37,13 @@
             class="btn btn-outline rounded-[44px] border-info text-primary hover:text-white hover:bg-info hover:border-info"
             @click="handleAdd"
           >
-            Add Products
+            Ürün Ekle
           </button>
           <button
             class="btn btn-outline rounded-[44px] border-info text-primary hover:text-white hover:bg-info hover:border-info"
             @click="handleEdit"
           >
-            Edit Shop Details
+            Mağazayı Düzenle
           </button>
         </div>
       </div>
@@ -58,7 +58,7 @@
     class="flex flex-col content-container py-16"
     v-if="state.products.length > 0"
   >
-    <p class="text-3xl font-semibold tracking-wide my-6">Products</p>
+    <p class="text-3xl font-semibold tracking-wide my-6">Ürünler</p>
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 place-items-center w-full gap-8 lg:gap-12"
     >

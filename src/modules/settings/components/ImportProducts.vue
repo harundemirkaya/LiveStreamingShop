@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-8 min-h-full">
-    <p class="text-xl text-primary font-semibold tracking-wider">Import from</p>
+    <p class="text-xl text-primary font-semibold tracking-wider">Şuradan Aktar</p>
     <div class="flex flex-col md:flex-row w-full md:items-center gap-6">
       <div
         :class="[state.selected === 'wc' ? `border-info text-info ` : ` `]"
@@ -16,7 +16,7 @@
     <div v-if="state.selected === 'wc'">
       <form class="flex flex-col gap-8 w-full" @submit="handleSubmit">
         <div class="input-wrapper">
-          <label for="wcUrl" class="labels"> Shop Url</label>
+          <label for="wcUrl" class="labels"> Shop URL</label>
           <input
             required
             type="text"
@@ -59,7 +59,7 @@
     <div v-if="state.selected === 'sp'">
       <form class="flex flex-col gap-8 w-full" @submit="handleSubmit">
         <div class="input-wrapper">
-          <label for="shopifyUrl" class="labels">Shopify Store Url</label>
+          <label for="shopifyUrl" class="labels">Shopify Store URL</label>
           <input
             required
             type="text"
@@ -123,7 +123,7 @@ const checkImportStatus = (type) => {
       authStore.authUser?.shopId.wcSecretKey !== "" &&
       authStore.authUser?.shopId.wcConsumerKey !== ""
     ) {
-      state.wcimportready = "Import Woocommerce Products";
+      state.wcimportready = "Ürünleri İçe Aktar";
     }
   }
   if (type === "sp") {
@@ -131,7 +131,7 @@ const checkImportStatus = (type) => {
       authStore.authUser?.shopId.shopifyUrl !== "" &&
       authStore.authUser?.shopId.shopifyAccessToken !== ""
     ) {
-      state.spimportready = "Import Shopify Products";
+      state.spimportready = "Ürünleri İçeri Aktar";
     }
   }
   console.log(state.spimportready);
