@@ -46,8 +46,8 @@
       <!-- -->
       <div class="flex flex-col gap-4">
         <!-- channel logo -->
-        <div
-          v-if="user?.shopId"
+        <div 
+          v-if="user?.shopId && authStore.authUser?.userType != 'customer'"
           class="flex items-center gap-4 pb-4 cursor-pointer"
           @click="handleShopClick(user?.shopId._id)"
         >
@@ -64,7 +64,8 @@
             class="h-8 w-8 rounded-full"
           />
           <!--  -->
-          <div class="flex flex-col gap-1">
+          <div 
+          class="flex flex-col gap-1">
             <!--Channel details name -->
             <p class="text-sm font-semibold text-gray-700">Mağazam</p>
             <p class="text-gray-600 tracking-wide">
@@ -139,8 +140,15 @@
               />
             </svg>
           </div>
-          <p class="text-sm font-semibold text-gray-700">
+          <p
+           v-if="authStore.authUser?.userType == 'customer'"
+           class="text-sm font-semibold text-gray-700">
             Siparişlerim
+          </p>
+          <p
+           v-else
+           class="text-sm font-semibold text-gray-700">
+            Satın
           </p>
           <svg
             class="w-8 h-8 text-gray-300 ml-auto"

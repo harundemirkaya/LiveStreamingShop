@@ -36,7 +36,7 @@
           Bize Katıl
         </button>
         <button
-          v-else
+          v-else-if="authStore.authUser?.userType != 'customer'"
           @click="handleClick"
           class="bg-info text-white font-semibold text-[18px] leading-[29px] rounded-[44px] w-[207px] h-[58px] flex items-center justify-center focus:outline-none focus:ring-0"
         >

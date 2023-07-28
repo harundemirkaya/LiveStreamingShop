@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-8 w-full items-center py-16">
     <h3 class="text-xl text-primary font-medium text-center">
-      Get started on TokShop
+      Get started on BeeRelation TV
     </h3>
     <v-facebook-login
       :app-id="$APP_ID"

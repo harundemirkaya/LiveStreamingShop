@@ -40,6 +40,9 @@ const state = reactive({
   bankStatus: "",
 });
 onMounted(() => {
+  if (authStore?.authUser?.userType == 'customer') {
+    router.push('/');
+  }
   getWithdrawOption();
   if (authStore?.authUser?.payoutmethod) {
     getAccountStatus();

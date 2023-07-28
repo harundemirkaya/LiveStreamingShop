@@ -39,13 +39,21 @@
 <script setup>
 import Dates from "@/modules/landing/components/Dates.vue";
 import {useRouter} from "vue-router";
+import { useAuthStore } from "@/store/auth.js";
 
 const props = defineProps(['event', 'isLive'])
 const dummyImageUrl = "/imgs/airplayvideo.svg"
 const router = useRouter();
+const authStore = useAuthStore();
 
 
-const handleClick = () => router.push(`/live/${props.event._id}`);
+const handleClick = () => {
+  if (!authStore.token){
+    router.push(`/login`);
+  } else{
+    router.push(`/live/${props.event._id}`);
+  }
+};
 
 </script>
 

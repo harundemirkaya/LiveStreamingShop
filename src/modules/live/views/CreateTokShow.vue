@@ -286,6 +286,9 @@ const getChannels = async () => {
 };
 
 onMounted(() => {
+  if (authStore?.authUser?.userType === 'customer') {
+    router.push('/');
+  }
   if (authStore?.authUser?.shopId == null) {
     router.push("shop/new");
   } else {

@@ -2,20 +2,8 @@
   <div class="flex flex-col content-container py-16 gap-8">
     <div class="flex w-full justify-between items-center">
       <p class="text-2xl text-primary font-semibold tracking-wide">
-        {{ state.defaultOrders ? "Siparişler" : "Satın Alınanlar" }}
+        {{ (authStore.authUser?.userType == 'customer') ? "Siparişlerim" : "Satın Alınanlar" }}
       </p>
-      <div class="flex gap-4 items-center">
-        <p class="font-semibold tracking-wider" @click="fetchPurchases">
-          Satın Alınanlar
-        </p>
-        <input
-          checked
-          class="toggle toggle-success"
-          type="checkbox"
-          @click="fetchList"
-        />
-        <p class="font-semibold tracking-wider" @click="fetchOrders">Siparişler</p>
-      </div>
     </div>
     <spinner-v2 :load="state.loading" />
     <div
@@ -139,21 +127,16 @@ const headers = [
 const fetchOrders = async () => {
   state.loading = true;
   let path = "";
-  if (!state.defaultOrders) {
+  if (authStore.authUser?.userType == "customer") {
     path = `/orders/all/orders?userid=${authStore?.authUser._id}`;
-  }
-  if (state.defaultOrders) {
+  } else{
     path = `/orders/all/orders?shopId=${authStore?.authUser?.shopId._id}`;
   }
   const { data } = await useFetch(path);
   state.loading = false;
   state.orders = data.value.orders;
-};
+}
 
-const fetchList = async () => {
-  state.defaultOrders = !state.defaultOrders;
-  await fetchOrders();
-};
 onMounted(() => {
   fetchOrders();
 });

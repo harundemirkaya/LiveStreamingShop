@@ -97,6 +97,7 @@ import { useAuthStore } from "@/store/auth";
 import { onMounted, reactive } from "vue";
 import SpinnerV2 from "@/shared/components/Spinner/SpinnerV2.vue";
 import { useFetch } from "@/shared/composables/Fetch";
+import router from "@/shared/routes/routes";
 
 const authStore = useAuthStore();
 const state = reactive({
@@ -114,6 +115,9 @@ const state = reactive({
 });
 
 onMounted(() => {
+  if (authStore.authUser?.userType == "customer") {
+    router.push('/');
+  }
   checkImportStatus(state.selected);
 });
 const checkImportStatus = (type) => {

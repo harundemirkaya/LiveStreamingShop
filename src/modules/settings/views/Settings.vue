@@ -17,9 +17,10 @@
         ]"
         class="tab lg:justify-start tab-bordered text-xs lg:text-lg font-medium text-primary lg:border-0"
       >
-        Gönderim Adresi
+        Adreslerim
       </a>
       <a
+        v-if="authStore.authUser?.userType != 'customer'"
         @click="router.push('/settings/import-products')"
         :class="[
           pathname === '/settings/import-products'
@@ -31,6 +32,7 @@
         Ürünleri İçe Aktar
       </a>
       <a
+        v-if="authStore.authUser?.userType != 'customer'"
         @click="router.push('/settings/shipping-method')"
         :class="[
           pathname === '/settings/shipping-method'
@@ -42,6 +44,7 @@
         Kargo Ayarları
       </a>
       <a
+        v-if="authStore.authUser?.userType != 'customer'"
         @click="router.push('/settings/payout')"
         :class="[
           pathname === '/settings/payout'
@@ -62,7 +65,11 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+import { useAuthStore } from "@/store/auth";
+
 
 const router = useRouter();
+const authStore = useAuthStore();
+
 const pathname = router.currentRoute.value.path;
 </script>

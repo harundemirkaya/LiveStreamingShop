@@ -61,8 +61,9 @@
         src="/imgs/tok_logo.svg"
         @click="handleLogoClick"
       />
-
+      
       <button
+        v-if="authStore.authUser.userType != 'customer'"
         class="bg-[#FF2323] primary-btn px-6 py-[6px] hidden lg:flex"
         @click="router.push('/createtokshow')"
       >

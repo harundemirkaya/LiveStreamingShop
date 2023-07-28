@@ -39,9 +39,10 @@
 </template>
 <script setup>
 import { useFetch } from "@/shared/composables/Fetch";
+import { onMounted, reactive } from "vue";
 import { useAuthStore } from "@/store/auth";
-import { reactive } from "vue-demi";
 import SpinnerV2 from "@/shared/components/Spinner/SpinnerV2.vue";
+import router from "@/shared/routes/routes";
 const authStore = useAuthStore();
 
 const state = reactive({
@@ -57,6 +58,12 @@ const deleteShippingMethod = (sp) => {
   saveShippingMethod();
   console.log(filtered);
 };
+
+onMounted(() => {
+  if (authStore.authUser?.userType == "customer") {
+    router.push('/');
+  }
+});
 
 const saveShippingMethod = async () => {
   state.loading = true;
