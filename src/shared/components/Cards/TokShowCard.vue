@@ -12,7 +12,7 @@
 
     <div
         class="flex flex-row gap-x-[1rem] absolute left-0 bottom-0 z-20
-         w-full px-4 pt-2 rounded-lg"
+         w-full px-4 pt-2 rounded-lg" 
     >
       <div
           class="flex gradient rounded-full h-8 w-8 border-[.1rem] border-gray-300

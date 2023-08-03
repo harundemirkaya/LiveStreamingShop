@@ -1,90 +1,38 @@
 <template>
   <div
-    class="flex flex-col w-full fixed inset-0 w-screen h-screen lg:h-[90vh] z-50 bg-black lg:relative lg:grid lg:grid-cols-3 xl:divide-x xl:divide-white xl:divide-x-2 xl:divide-gray-500"
-  >
-    <desktop-tabs
-      :event="state.event"
-      :is-owner="isOwner"
-      :sendRTMMessage="sendRTMMessage"
-      @toggle-sound="(user) => toggleSound(user)"
-    />
-    <div
-      id="videoDiv"
-      :class="[!state.hasJoined ? 'bg-[length:50px_50px] ' : 'bg-center']"
-      class="flex h-full w-full lg:col-span-2 xl:col-span-1 lg:relative place-self-stretch"
-    >
-      <info-overlay
-        :first-name="state?.event?.ownerId?.firstName"
-        :followers="state?.event?.ownerId?.followers?.length"
-        :is-following="state.isFollowing"
-        :is-owner="isOwner"
-        :last-name="state?.event?.ownerId?.lastName"
-        :profile-photo="state?.event?.ownerId?.profilePhoto"
-        :shopId="state.event?.shopId?._id"
-        @follow="handleFollowClick"
-        @leave="handleLeave"
-      />
+    class="flex flex-col w-full fixed inset-0 w-screen h-screen lg:h-[90vh] z-50 bg-black lg:relative lg:grid lg:grid-cols-3 xl:divide-x xl:divide-white xl:divide-x-2 xl:divide-gray-500">
+    <desktop-tabs :event="state.event" :is-owner="isOwner" :sendRTMMessage="sendRTMMessage"
+      @toggle-sound="(user) => toggleSound(user)" />
+    <div id="videoDiv" :class="[!state.hasJoined ? 'bg-[length:50px_50px] ' : 'bg-center']"
+      :style="{ backgroundImage: 'url(/imgs/mic_logo.png)' }"
+      class="flex h-full w-full lg:col-span-2 xl:col-span-1 lg:relative place-self-stretch">
+      <info-overlay :first-name="state?.event?.ownerId?.firstName" :followers="state?.event?.ownerId?.followers?.length"
+        :is-following="state.isFollowing" :is-owner="isOwner" :last-name="state?.event?.ownerId?.lastName"
+        :profile-photo="state?.event?.ownerId?.profilePhoto" :shopId="state.event?.shopId?._id"
+        @follow="handleFollowClick" @leave="handleLeave" />
 
-      <div
-        class="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
-      >
+      <div class="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
         <spinner-v2 :load="state.loading || agoraLoading" />
       </div>
-      <Controls
-        v-if="!tokshowStore.tokshow.ended"
-        :has-ended="state.event?.ended || hasEnded"
-        :has-joined="hasJoined"
-        :is-owner="isOwner"
-        :is-video-hidden="isVideoHidden"
-        :sendRTMMessage="sendRTMMessage"
-        @leave="handleLeave"
-        @toggle-sound="(user) => toggleSound(user)"
-        @toggle-video="toggleVideo"
-        @open-shop="state.openTab = 'shop'"
+      <Controls v-if="!tokshowStore.tokshow.ended" :has-ended="state.event?.ended || hasEnded" :has-joined="hasJoined"
+        :is-owner="isOwner" :is-video-hidden="isVideoHidden" :sendRTMMessage="sendRTMMessage" @leave="handleLeave"
+        @toggle-sound="(user) => toggleSound(user)" @toggle-video="toggleVideo" @open-shop="state.openTab = 'shop'"
         @toggle-hand-modal="state.raisedHandsModal = !state.raisedHandsModal"
-        @toggle-share-modal="state.shareModal = true"
-      />
-      <CountDown
-        v-if="hours && !state.hasJoined && !hasArrived"
-        :event="state.event"
-      />
+        @toggle-share-modal="state.shareModal = true" />
+      <CountDown v-if="hours && !state.hasJoined && !hasArrived" :event="state.event" />
 
-      <VideoActions
-        :has-arrived="hasArrived"
-        :has-ended="state.event?.ended || hasEnded"
-        :has-joined="hasJoined"
-        :is-owner="isOwner"
-        :loading="agoraLoading || state.loading"
-        @start-tok-show="handleStartTokShow"
-      />
-      <AuctionDisplay
-        v-if="!state.loading && !agoraLoading && auctionStore.auction"
-        :isOwner="isOwner"
-      />
+      <VideoActions :has-arrived="hasArrived" :has-ended="state.event?.ended || hasEnded" :has-joined="hasJoined"
+        :is-owner="isOwner" :loading="agoraLoading || state.loading" @start-tok-show="handleStartTokShow" />
+      <AuctionDisplay v-if="!state.loading && !agoraLoading && auctionStore.auction" :isOwner="isOwner" />
     </div>
 
-    <shop-tab
-      v-if="state.openTab === 'shop'"
-      :event="state.event"
-      @close="state.openTab = ''"
-    />
+    <shop-tab v-if="state.openTab === 'shop'" :event="state.event" @close="state.openTab = ''" />
 
-    <raised-hands
-      v-if="state.raisedHandsModal"
-      :event="state.event"
-      :is-owner="isOwner"
-      class="lg:hidden"
-      @close="state.raisedHandsModal = false"
-      @toggle-sound="(user) => toggleSound(user)"
-    />
-    <share-modal
-      v-if="state.shareModal"
-      facebook-url="https://www.facebook.com/sharer/sharer.php?u=tokshop.live"
-      insta-url="https://www.instagram.com/?url=https://www.drdrop.co/"
-      :whatsapp-url="state.whatsAppURL"
-      :absolute-url="absoluteURL"
-      @close="state.shareModal = false"
-    />
+    <raised-hands v-if="state.raisedHandsModal" :event="state.event" :is-owner="isOwner" class="lg:hidden"
+      @close="state.raisedHandsModal = false" @toggle-sound="(user) => toggleSound(user)" />
+    <share-modal v-if="state.shareModal" facebook-url="https://www.facebook.com/sharer/sharer.php?u=tokshop.live"
+      insta-url="https://www.instagram.com/?url=https://www.drdrop.co/" :whatsapp-url="state.whatsAppURL"
+      :absolute-url="absoluteURL" @close="state.shareModal = false" />
     <chat-tab :event="state.event" />
   </div>
 </template>
@@ -92,57 +40,57 @@
 <script setup>
 import { useFetch } from "@/shared/composables/Fetch.js";
 import { useRoute, useRouter } from "vue-router";
-import {computed, defineAsyncComponent, onMounted, onUnmounted, reactive, watch} from "vue";
+import { computed, defineAsyncComponent, onMounted, onUnmounted, reactive, watch } from "vue";
 import { useAuthStore } from "@/store/auth.js";
 import { useFollow } from "@/shared/composables/follow.js";
 
-const  ShopTab = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/shop/ShopTab.vue"),
+const ShopTab = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/shop/ShopTab.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  ChatTab = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/ChatTab.vue"),
+const ChatTab = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/ChatTab.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  Controls = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/Agora/Controls.vue"),
+const Controls = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/Agora/Controls.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  InfoOverlay = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/Agora/InfoOverlay.vue"),
+const InfoOverlay = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/Agora/InfoOverlay.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  AuctionDisplay = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/auction/AuctionDisplay.vue"),
+const AuctionDisplay = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/auction/AuctionDisplay.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  DesktopTabs = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/DesktopTabs.vue"),
+const DesktopTabs = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/DesktopTabs.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  VideoActions = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/Agora/VideoActions.vue"),
+const VideoActions = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/Agora/VideoActions.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  CountDown = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/CountDown.vue"),
+const CountDown = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/CountDown.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  RaisedHands = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/shop/RaisedHands.vue"),
+const RaisedHands = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/shop/RaisedHands.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
-const  ShareModal = defineAsyncComponent({
-  loader:() => import("@/modules/live/components/ShareModal.vue"),
+const ShareModal = defineAsyncComponent({
+  loader: () => import("@/modules/live/components/ShareModal.vue"),
   loadingComponent: import("@/shared/components/Spinner/SpinnerV2.vue")
 })
 
@@ -166,8 +114,9 @@ const { follow, loading, checkFollowing } = useFollow();
 const { startTimer, days, hours, minutes, seconds } = useCountDown();
 
 const isOwner = computed(
-  () => authStore.authUser?._id === state?.event?.ownerId?._id
-);
+  () => {
+    return state?.event?.ownerId !== undefined && authStore.authUser?._id === state?.event?.ownerId?._id;
+  });
 
 const hasArrived = computed(
   () =>

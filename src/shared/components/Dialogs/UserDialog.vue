@@ -148,7 +148,7 @@
           <p
            v-else
            class="text-sm font-semibold text-gray-700">
-            Satın
+            Satın Alınanlar
           </p>
           <svg
             class="w-8 h-8 text-gray-300 ml-auto"

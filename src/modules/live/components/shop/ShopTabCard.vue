@@ -17,7 +17,7 @@
         </p>
       </div>
       <button v-if="!isOwner" class="primary-btn w-28 mt-2 cursor-pointer"
-              @click="router.push(`/product/${product?._id}`)">Satın Al
+      @click="addToBag">Satın Al
       </button>
     </div>
 
@@ -81,6 +81,11 @@ const state = reactive({
 const cart = useCart();
 const {addToCart} = cart;
 const {products} = storeToRefs(cart);
+
+const addToBag = () => {
+  addToCart(props.product);
+  state.inCart = true;
+};
 
 const handleClick = () => {
   if (!props.isOwner) {

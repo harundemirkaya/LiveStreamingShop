@@ -152,7 +152,7 @@ onMounted(() => {
 const fetchMyAddress = async () => {
   const { data } = await useFetch("/address/all/" + authStore.authUser?._id);
 
-  if (data.value) {
+  if (data.value[0]) {
     state.address = data.value[0];
     state.stateSuggestions = State.getStatesOfCountry(
       data.value[0].countryCode
