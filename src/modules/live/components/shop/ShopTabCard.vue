@@ -2,7 +2,6 @@
   <div
       class="flex w-full rounded-lg bg-transparent text-white gap-3 py-4 flex-shrink-0
     relative items-center"
-      @click="handleClick"
   >
     <div class="flex-col gap-2 w-full">
       <p class="text-lg font-bold">
@@ -84,7 +83,18 @@ const {products} = storeToRefs(cart);
 
 const addToBag = () => {
   addToCart(props.product);
-  state.inCart = true;
+  Swal.fire({
+    icon: "info",
+    text: "Ürün Sepete Eklendi",
+  }).then(() => {
+    let newWindow = window.open("/checkout", "_blank", "width=500,height=600");
+    newWindow.addEventListener("load", function() {
+      let navbar = this.document.querySelector('nav');
+      let footer = this.document.querySelector('footer');
+      if(navbar) navbar.remove();
+      if(footer) footer.remove();
+    });
+  });
 };
 
 const handleClick = () => {

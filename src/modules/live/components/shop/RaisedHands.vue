@@ -3,6 +3,10 @@
       class="flex flex-col inset-0 z-50 bg-black/80 w-screen self-center h-screen fixed px-4
     lg:relative lg:w-full lg:h-full lg:text-primary items-center"
   >
+  <div
+  @click="refreshRaisedHands">
+  <h1 style="color: white;">Yenile</h1>
+  </div>
     <svg
         aria-hidden="true"
         class="absolute top-4 z-50 right-8 h-8 w-8 lg:hidden cursor-pointer"
@@ -135,6 +139,18 @@ const inviteToSpeak = async (user) => {
     channel: agoraStore.RTMChannel,
   });
 };
+
+const refreshRaisedHands = async () => {
+  try {
+    const response = await useFetch(`/rooms/rooms/${roomId}`);
+    if(response && response.data) {
+      tokShowStore.tokshow.raisedHands = response.data.value.raisedHands;
+    }
+  } catch(error) {
+    console.error("Raised hands bilgilerini yenileme sırasında bir hata oluştu:", error);
+  }
+};
+
 const removeSpeakorRaisedHand = async (user) => {
   removeSpeakerRaisedHand(user._id);
   await sendRTMMessage({
